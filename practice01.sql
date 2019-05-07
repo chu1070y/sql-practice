@@ -1,5 +1,7 @@
 -- 기본 SQL 문제입니다.
 
+-- 문제1.
+-- 사번이 10944인 사원의 이름은(전체 이름)
 SELECT 
     CONCAT(first_name, ' ', last_name) AS '전체이름'
 FROM
