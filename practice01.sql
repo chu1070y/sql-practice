@@ -109,17 +109,11 @@ ORDER BY LENGTH(title) DESC;
 -- 현재 Enginner 직책의 사원은 총 몇 명입니까?
 -- 결과: 30983 명
 SELECT 
-    COUNT(employees.emp_no) AS '엔지니어 수'
-FROM
-    employees,
-    (SELECT 
-        emp_no
+        COUNT(emp_no) '엔지니어 수'
     FROM
         titles
     WHERE
-        title = 'Engineer' AND to_date > NOW()) AS engineer
-WHERE
-    employees.emp_no = engineer.emp_no
+        title = 'Engineer' AND to_date > NOW()
 ;
 
 

@@ -1,5 +1,7 @@
 -- 테이블간 조인(JOIN) SQL 문제입니다.
 
+-- 문제 1
+-- 현재 급여가 많은 직원부터 직원의 사번, 이름, 그리고 연봉을 출력 하시오.
 SELECT 
     a.emp_no '사번',
     CONCAT(a.first_name, ' ', a.last_name) '이름',
@@ -81,6 +83,7 @@ FROM
 WHERE
     a.emp_no = b.emp_no
         AND b.to_date != '9999-01-01'
+        AND b.title = 'Technique Leader'
 ;
 
 -- 문제6.
@@ -117,6 +120,7 @@ WHERE
         AND b.to_date = '9999-01-01'
         AND c.to_date = '9999-01-01'
         AND c.salary >= 40000
+        AND b.title = 'Engineer'
 ORDER BY c.salary DESC
 ;
 
