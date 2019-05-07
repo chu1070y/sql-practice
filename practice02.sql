@@ -2,7 +2,10 @@
 
 -- 문제 1. 
 -- 최고임금(salary)과  최저임금을 “최고임금, “최저임금”프로젝션 타이틀로 함께 출력해 보세요. 두 임금의 차이는 얼마인가요? 함께 “최고임금 – 최저임금”이란 타이틀로 출력해 보세요.
-select max(salary) as '최고임금', min(salary) as '최저임금', max(salary) - min(salary) as '최고임금 - 최저임금'
+select 
+	max(salary) as '최고임금',
+    min(salary) as '최저임금',
+	max(salary) - min(salary) as '최고임금 - 최저임금'
 from salaries
 ;
 
@@ -36,6 +39,8 @@ where to_date = '9999-01-01'
 
 -- 문제6.
 -- 최고 어린 사원의 나이와 최 연장자의 나이는?
-select min(year(now()) - year(hire_date)) + 1 '최고 어린 나이', max(year(now()) - year(hire_date)) + 1 '최연장자 나이'
+select
+	min(year(now()) - year(hire_date)) + 1 '최고 어린 나이',
+    max(year(now()) - year(hire_date)) + 1 '최연장자 나이'
 from employees
 ;

@@ -5,6 +5,7 @@
 select a.emp_no '사번', concat(a.first_name,' ',a.last_name) '이름', b.salary '연봉'
 from employees a, salaries b
 where a.emp_no = b.emp_no
+	and b.to_date = '9999-01-01'
 order by b.salary desc
 ;
 
@@ -13,6 +14,7 @@ order by b.salary desc
 select a.emp_no '사번', concat(a.first_name,' ',a.last_name) '이름', b.title '직책'
 from employees a, titles b
 where a.emp_no = b.emp_no
+	and b.to_date = '9999-01-01'
 order by concat(a.first_name,' ',a.last_name)
 ;
 
@@ -22,16 +24,21 @@ select a.emp_no '사번', concat(a.first_name,' ',a.last_name) '이름', c.dept_
 from employees a, dept_emp b, departments c
 where a.emp_no = b.emp_no
 	and b.dept_no = c.dept_no
+    and b.to_date = '9999-01-01'
 order by concat(a.first_name,' ',a.last_name)
 ;
 
 -- 문제4.
 -- 전체 사원의 사번, 이름, 연봉, 직책, 부서를 모두 이름 순서로 출력합니다.
-select a.emp_no '사번', concat(a.first_name,' ',a.last_name) '이름', d.title '직책', c.dept_name '부서'
-from employees a, dept_emp b, departments c, titles d
+select a.emp_no '사번', concat(a.first_name,' ',a.last_name) '이름', e.salary '연봉', d.title '직책', c.dept_name '부서'
+from employees a, dept_emp b, departments c, titles d, salaries e
 where a.emp_no = b.emp_no
 	and b.dept_no = c.dept_no
     and a.emp_no = d.emp_no
+    and a.emp_no = e.emp_no
+    and b.to_date = '9999-01-01'
+    and d.to_date = '9999-01-01'
+    and e.to_date = '9999-01-01'
 order by concat(a.first_name,' ',a.last_name)
 ;
 
@@ -50,6 +57,8 @@ from employees a, dept_emp b, departments c, titles d
 where a.emp_no = b.emp_no
 	and b.dept_no = c.dept_no
     and a.emp_no = d.emp_no
+    and b.to_date = '9999-01-01'
+    and d.to_date = '9999-01-01'
     and a.last_name like 'S%'
 ;
 
